@@ -5,9 +5,9 @@
   <subtitle>H1d3r 的自留地</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://h1d3r.github.io/"/>
+  <link href="https://blog.h1d3r.xyz/"/>
   <updated>2020-06-18T02:14:22.436Z</updated>
-  <id>http://h1d3r.github.io/</id>
+  <id>https://blog.h1d3r.xyz/</id>
   
   <author>
     <name>H1d3r</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>判断落地IP是否为真实地址的方法-初步整理</title>
-    <link href="http://h1d3r.github.io/2020/06/18/%E5%88%A4%E6%96%AD%E8%90%BD%E5%9C%B0IP%E6%98%AF%E5%90%A6%E4%B8%BA%E7%9C%9F%E5%AE%9E%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95-%E5%88%9D%E6%AD%A5%E6%95%B4%E7%90%86/"/>
-    <id>http://h1d3r.github.io/2020/06/18/判断落地IP是否为真实地址的方法-初步整理/</id>
+    <link href="https://blog.h1d3r.xyz/2020/06/18/%E5%88%A4%E6%96%AD%E8%90%BD%E5%9C%B0IP%E6%98%AF%E5%90%A6%E4%B8%BA%E7%9C%9F%E5%AE%9E%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95-%E5%88%9D%E6%AD%A5%E6%95%B4%E7%90%86/"/>
+    <id>https://blog.h1d3r.xyz/2020/06/18/判断落地IP是否为真实地址的方法-初步整理/</id>
     <published>2020-06-18T01:31:00.000Z</published>
     <updated>2020-06-18T02:14:22.436Z</updated>
     
@@ -35,12 +35,12 @@
     
     </summary>
     
-      <category term="小知识" scheme="http://h1d3r.github.io/categories/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+      <category term="小知识" scheme="https://blog.h1d3r.xyz/categories/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     
     
-      <category term="落地" scheme="http://h1d3r.github.io/tags/%E8%90%BD%E5%9C%B0/"/>
+      <category term="落地" scheme="https://blog.h1d3r.xyz/tags/%E8%90%BD%E5%9C%B0/"/>
     
-      <category term="真实IP" scheme="http://h1d3r.github.io/tags/%E7%9C%9F%E5%AE%9EIP/"/>
+      <category term="真实IP" scheme="https://blog.h1d3r.xyz/tags/%E7%9C%9F%E5%AE%9EIP/"/>
     
   </entry>
   
