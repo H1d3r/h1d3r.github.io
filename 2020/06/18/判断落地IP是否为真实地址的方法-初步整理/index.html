@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="落地,真实IP," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="H1d3r's Private Plots" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一、通过微步在线等IP反查域名平台 地址：https:&#x2F;&#x2F;x.threatbook.cn&#x2F; 说明：  1、通过ip反查，判断是否绑定了域名，如果有域名解析，研判所绑定域名的情况（是否是常见的ddns域名），ddns的话有可能是真实ip。     二、通过IPIP 地址：https:&#x2F;&#x2F;www.ipip.net&#x2F;ip.html 说明：   1、 IPIP部分也会显示为“动态IP”；   2、 其中的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断落地IP是否为真实地址的方法-初步整理">
+<meta property="og:url" content="http://h1d3r.github.io/2020/06/18/%E5%88%A4%E6%96%AD%E8%90%BD%E5%9C%B0IP%E6%98%AF%E5%90%A6%E4%B8%BA%E7%9C%9F%E5%AE%9E%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95-%E5%88%9D%E6%AD%A5%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="H1d3r&#39;s Private Plots">
+<meta property="og:description" content="一、通过微步在线等IP反查域名平台 地址：https:&#x2F;&#x2F;x.threatbook.cn&#x2F; 说明：  1、通过ip反查，判断是否绑定了域名，如果有域名解析，研判所绑定域名的情况（是否是常见的ddns域名），ddns的话有可能是真实ip。     二、通过IPIP 地址：https:&#x2F;&#x2F;www.ipip.net&#x2F;ip.html 说明：   1、 IPIP部分也会显示为“动态IP”；   2、 其中的">
+<meta property="og:image" content="http://h1d3r.github.io/images/pasted-0.png">
+<meta property="og:image" content="http://h1d3r.github.io/images/pasted-1.png">
+<meta property="og:image" content="http://h1d3r.github.io/images/pasted-2.png">
+<meta property="og:image" content="http://h1d3r.github.io/images/pasted-3.png">
+<meta property="og:image" content="http://h1d3r.github.io/images/pasted-4.png">
+<meta property="article:published_time" content="2020-06-18T01:31:00.000Z">
+<meta property="article:modified_time" content="2020-06-18T02:14:22.436Z">
+<meta property="article:author" content="H1d3r">
+<meta property="article:tag" content="落地">
+<meta property="article:tag" content="真实IP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://h1d3r.github.io/images/pasted-0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://h1d3r.github.io/2020/06/18/判断落地IP是否为真实地址的方法-初步整理/"/>
+
+
+
+
+
+  <title>判断落地IP是否为真实地址的方法-初步整理 | H1d3r's Private Plots</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">H1d3r's Private Plots</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">H1d3r 的自留地</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://h1d3r.github.io/2020/06/18/%E5%88%A4%E6%96%AD%E8%90%BD%E5%9C%B0IP%E6%98%AF%E5%90%A6%E4%B8%BA%E7%9C%9F%E5%AE%9E%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95-%E5%88%9D%E6%AD%A5%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="H1d3r">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="H1d3r's Private Plots">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">判断落地IP是否为真实地址的方法-初步整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-18T09:31:00+08:00">
+                2020-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B0%8F%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">小知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、通过微步在线等IP反查域名平台"><a href="#一、通过微步在线等IP反查域名平台" class="headerlink" title="一、通过微步在线等IP反查域名平台"></a>一、通过微步在线等IP反查域名平台</h2><ul>
+<li>地址：<a href="https://x.threatbook.cn/" target="_blank" rel="noopener">https://x.threatbook.cn/</a></li>
+<li><p>说明：</p>
+<ul>
+<li>1、通过ip反查，判断是否绑定了域名，如果有域名解析，研判所绑定域名的情况（是否是常见的ddns域名），ddns的话有可能是真实ip。</li>
+</ul>
+<hr>
+</li>
+</ul>
+<h2 id="二、通过IPIP"><a href="#二、通过IPIP" class="headerlink" title="二、通过IPIP"></a>二、通过IPIP</h2><ul>
+<li>地址：<a href="https://www.ipip.net/ip.html" target="_blank" rel="noopener">https://www.ipip.net/ip.html</a></li>
+<li><p>说明： </p>
+<blockquote>
+<p>1、 IPIP部分也会显示为“动态IP”；</p>
+</blockquote>
+<blockquote>
+<p>2、 其中的“代理识别”目前暂不作为参考依据。</p>
+</blockquote>
+<p>  <img src="/images/pasted-0.png" alt="upload successful"></p>
+<blockquote>
+<p>3、 部分IP，在IPIP中已经标识为”该 IP 段由运营商应用在基站（含 WIFI）用途“，则我们可以下结论，该IP就是真实IP，但大概率是移动网络的公共出口。</p>
+</blockquote>
+<p>  <img src="/images/pasted-1.png" alt="upload successful"></p>
+<blockquote>
+<p>4、境外的IP，如果页面没有进行其他明显性的标注，则可通过对应的运营商做进一步判断，如下图中的”tm.com.my“，我们可以搜索该运营商（比如官网）的运营业务，比如是主要运营家庭网络、电话网络，或者是提供云服务器，基本可以确定为动态IP（既真实IP）；另外也可初步通过ASN数据中的信息，如果含有”-AP“字样，一般是运营商把这个网段用来作为AP（大概率是基站）的网段，也可初步判断是真实IP。</p>
+</blockquote>
+<p>  <img src="/images/pasted-2.png" alt="upload successful"></p>
+<p>  <img src="/images/pasted-3.png" alt="upload successful"></p>
+<blockquote>
+<p>5、如果已经明确是vps之类的数据中心，IPIP中也会标识”IDC机房使用“，就可说明是代理IP。</p>
+</blockquote>
+<p>  <img src="/images/pasted-4.png" alt="upload successful"></p>
+<blockquote>
+<p>6、至于页面下方的“RTBAsia非人类访问量甄别服务，只作为在其他情况不能确定的情况下作为参考依据（放在最后来判断）。</p>
+</blockquote>
+<hr>
+<h2 id="三、通过其他技术判断"><a href="#三、通过其他技术判断" class="headerlink" title="三、通过其他技术判断"></a>三、通过其他技术判断</h2><p>  1、 国内IP，可直接访问80端口，如果可以直接访问，基本不是真实IP；</p>
+<p>  2、 通过端口扫描，查看是否开启了服务器常用的对外端口</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E8%90%BD%E5%9C%B0/" rel="tag"># 落地</a>
+          
+            <a href="/tags/%E7%9C%9F%E5%AE%9EIP/" rel="tag"># 真实IP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">H1d3r</p>
+              <p class="site-description motion-element" itemprop="description">三天打鱼,两天筛网</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、通过微步在线等IP反查域名平台"><span class="nav-number">1.</span> <span class="nav-text">一、通过微步在线等IP反查域名平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、通过IPIP"><span class="nav-number">2.</span> <span class="nav-text">二、通过IPIP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、通过其他技术判断"><span class="nav-number">3.</span> <span class="nav-text">三、通过其他技术判断</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">H1d3r</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
